@@ -71,7 +71,8 @@ public class AlgorithmCustom {
 
 //        log.info("{}",);
         if(unifyResponse.getEncryptData().equals("null")){
-            throw new CustomException("请求错误:" + unifyResponse.getResMsg());
+            log.info("请求错误:{}",unifyResponse.getResMsg());
+            return unifyResponse.toJson();
         }
         String encryptKey = unifyResponse.getEncryptKey();//获取加密的AES秘钥
         String encryptData = unifyResponse.getEncryptData(); //获取加密的报文
